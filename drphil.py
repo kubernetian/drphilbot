@@ -20,7 +20,7 @@ async def on_message(message):
     if message.content.startswith('hi'):
         await message.channel.send('Hello!')
 
-    msg = message.content.lower().replace("!", " ").replace(",", " ").split(" ")
+    msg = message.content.lower().replace("!", " ").replace(",", " ").replace(".", " ").split(" ")
     for i in msg:
 
         with open("quotes.txt") as f:
