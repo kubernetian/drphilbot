@@ -3,6 +3,7 @@ import os
 import string
 
 d = {}
+
 TOKEN =  os.environ.get('DISCORD_TOKEN')
 
 intents = discord.Intents.all()
@@ -16,14 +17,15 @@ async def on_ready():
 async def on_message(message):
     print("message-->", message)
     
-    message = message.translate(str.maketrans('', '', string.punctuation))
+    no_punctuations = str(message.content).translate(str.maketrans('', '', string.punctuation))
+
     if message.author == client.user:
         return
 
     if message.content.startswith('hi'):
         await message.channel.send('Hello!')
 
-    msg = message.content.lower().split(" ")
+    msg = no_punctuations.lower().split(" ")
     for i in msg:
 
         with open("quotes.txt") as f:
