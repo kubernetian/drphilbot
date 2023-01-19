@@ -22,9 +22,6 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('hi'):
-        await message.channel.send('Hello!')
-
     msg = no_punctuations.lower().split(" ")
     for i in msg:
 
